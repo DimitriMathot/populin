@@ -1,0 +1,9 @@
+api.zones:
+    type: rest
+    resource: ApiBundle\Controller\Zones\ZonesController
+
+
+api.zones_types:
+    type: rest
+    parent: api.zones
+    resource: ApiBundle\Controller\Zones\ZonesTypesController
