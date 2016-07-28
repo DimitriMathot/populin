@@ -76,54 +76,54 @@ MySQL 5.7 is currently used, PostGreSQL with PostGIS extension could be a reason
 
 ### Zones Types 
 
-Methods          | Routes                                                 
------------------+-------------------------------------------------------
-**GET**          | /{locale}/zones-types                                 
-**GET**          | /{locale}/zones-types/{type}                          
-**PUT**          | /{locale}/zones-types/{type}                          
-**DELETE**       | /{locale}/zones-types/{type}                          
-**POST**         | /{locale}/zones-types/                                
+|Methods          | Routes                                                |
+|-----------------|-------------------------------------------------------|
+|**GET**          | /{locale}/zones-types                                 |
+|**GET**          | /{locale}/zones-types/{type}                          |
+|**PUT**          | /{locale}/zones-types/{type}                          |
+|**DELETE**       | /{locale}/zones-types/{type}                          |
+|**POST**         | /{locale}/zones-types/                                |
 
 ### Zones
 
-Methods          | Routes                                                 
------------------+-------------------------------------------------------
-**GET**          | /{locale}/zones              
-**GET**          | /{locale}/zones-types/{type}/zones              
-**GET**          | /{locale}/zones/{slug}               
-**GET**          | /{locale}/zones-types/{type}/zones/{slug}               
-**PUT**          | /{locale}/zones/{slug}               
-**PUT**          | /{locale}/zones-types/{type}/zones/{slug}               
-**DELETE**       | /{locale}/zones/{slug}               
-**DELETE**       | /{locale}/zones-types/{type}/zones/{slug}               
-**POST**         | /{locale}/zones-types/{type}/zones                    
+|Methods          | Routes                                                |
+|-----------------|-------------------------------------------------------|
+|**GET**          | /{locale}/zones                                       |
+|**GET**          | /{locale}/zones-types/{type}/zones                    |
+|**GET**          | /{locale}/zones/{slug}                                |
+|**GET**          | /{locale}/zones-types/{type}/zones/{slug}             |
+|**PUT**          | /{locale}/zones/{slug}                                |
+|**PUT**          | /{locale}/zones-types/{type}/zones/{slug}             |
+|**DELETE**       | /{locale}/zones/{slug}                                |
+|**DELETE**       | /{locale}/zones-types/{type}/zones/{slug}             |
+|**POST**         | /{locale}/zones-types/{type}/zones                    |
 
 ### Mandates
 
-Methods          | Routes                                                 
------------------+-------------------------------------------------------
-**GET**          | /{locale}/mandates/{slug}                             
-**GET**          | /{locale}/zones-types/{type}/mandates/{slug}                             
-**PUT**          | /{locale}/mandates/{slug}                             
-**PUT**          | /{locale}/zones-types/{type}/mandates/{slug}                             
-**DELETE**       | /{locale}/mandates/{slug}                             
-**DELETE**       | /{locale}/zones-types/{type}/mandates/{slug}                             
-**POST**         | /{locale}/mandates/                                   
+|Methods          | Routes                                                |
+|-----------------|-------------------------------------------------------|
+|**GET**          | /{locale}/mandates/{slug}                             |
+|**GET**          | /{locale}/zones-types/{type}/mandates/{slug}          |
+|**PUT**          | /{locale}/mandates/{slug}                             |
+|**PUT**          | /{locale}/zones-types/{type}/mandates/{slug}          |
+|**DELETE**       | /{locale}/mandates/{slug}                             |
+|**DELETE**       | /{locale}/zones-types/{type}/mandates/{slug}          |
+|**POST**         | /{locale}/mandates/                                   |
 
 ### Elects
 
-Methods          | Routes                                                 
------------------+-------------------------------------------------------
-**GET**          | /{locale}/elects        
-**GET**          | /{locale}/zones-types/{type}/zones/{id}/elects        
-**GET**          | /{locale}/elects/{id}   
-**GET**          | /{locale}/zones-types/{type}/zones/{id}/elects/{id}   
-**PUT**          | /{locale}/elects/{id}   
-**PUT**          | /{locale}/zones-types/{type}/zones/{id}/elects/{id}   
-**DELETE**       | /{locale}/elects/{id}   
-**DELETE**       | /{locale}/zones-types/{type}/zones/{id}/elects/{id}   
-**POST**         | /{locale}/elects        
-**POST**         | /{locale}/zones-types/{type}/zones/{id}/elects   
+|Methods          | Routes                                                |
+|-----------------|-------------------------------------------------------|
+|**GET**          | /{locale}/elects                                      |
+|**GET**          | /{locale}/zones-types/{type}/zones/{id}/elects        |
+|**GET**          | /{locale}/elects/{id}                                 |
+|**GET**          | /{locale}/zones-types/{type}/zones/{id}/elects/{id}   |
+|**PUT**          | /{locale}/elects/{id}                                 |
+|**PUT**          | /{locale}/zones-types/{type}/zones/{id}/elects/{id}   |
+|**DELETE**       | /{locale}/elects/{id}                                 |
+|**DELETE**       | /{locale}/zones-types/{type}/zones/{id}/elects/{id}   |
+|**POST**         | /{locale}/elects                                      |
+|**POST**         | /{locale}/zones-types/{type}/zones/{id}/elects        |
 
 ## Nice-to-have
 
