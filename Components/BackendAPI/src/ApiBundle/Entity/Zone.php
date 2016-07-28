@@ -2,7 +2,6 @@
 
 namespace ApiBundle\Entity;
 
-use ApiBundle\Entity\Country;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

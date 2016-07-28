@@ -2,7 +2,6 @@
 
 namespace ApiBundle;
 
-use ApiBundle\DependencyInjection\CompilerPass\DoctrineRepositoriesPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

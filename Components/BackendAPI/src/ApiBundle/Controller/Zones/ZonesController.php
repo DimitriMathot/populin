@@ -11,8 +11,7 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
- * Class TypesController
- * @package ApiBundle\Controller\Zones
+ * Class TypesController.
  */
 class ZonesController extends Controller
 {
@@ -34,13 +33,13 @@ class ZonesController extends Controller
      * @ParamConverter("country", options={"mapping": {"country": "isoCode2Letters"}})
      *
      * @param Country $country
+     *
      * @return ZoneType[]|array
      */
     public function getZonesTypesAction(Country $country)
     {
         return $this->get('api.repository.zone_type')->getZonesTypesByCountry($country);
     }
-
 
     /**
      * @Route(
@@ -61,13 +60,13 @@ class ZonesController extends Controller
      * @ParamConverter("zoneType", options={"mapping": {"country": "country.isoCode2Letters", "slug": "slug"}})
      *
      * @param ZoneType $zoneType
+     *
      * @return ZoneType
      */
     public function getZonesTypeAction(ZoneType $zoneType)
     {
         return $zoneType;
     }
-
 
     /**
      * @Route(
@@ -87,6 +86,7 @@ class ZonesController extends Controller
      * @ParamConverter("zoneType", options={"mapping": {"country": "country.isoCode2Letters", "slug": "slug"}})
      *
      * @param ZoneType $zoneType
+     *
      * @return array
      */
     public function getZonesAction(ZoneType $zoneType)
@@ -112,6 +112,7 @@ class ZonesController extends Controller
      * @ParamConverter("zone", options={"mapping": {"country": "type.country.isoCode2Letters", "zone_type_slug": "type.slug", "zone_slug": "slug"}})
      *
      * @param Zone $zone
+     *
      * @return array
      */
     public function getZoneAction(Zone $zone)

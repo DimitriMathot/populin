@@ -12,5 +12,9 @@ backend-api-cache:
 	$(BACKEND_API)/bin/console cache:warmup -e prod
 	$(BACKEND_API)/bin/console cache:warmup
 
+backend-cs:
+	php-cs-fixer fix $(BACKEND_API)/src/ --level=symfony
+
 backend-server: backend-api-cache
 	screen -S politics-backend-server -d -m $(BACKEND_API)/bin/console server:run
+
