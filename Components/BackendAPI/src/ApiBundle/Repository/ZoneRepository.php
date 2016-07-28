@@ -2,6 +2,8 @@
 
 namespace ApiBundle\Repository;
 
+use ApiBundle\Entity\Zone;
+use ApiBundle\Entity\ZoneType;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -12,15 +14,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class ZoneRepository extends EntityRepository
 {
-    public function findAllByType($type)
-    {
-        $queryBuilder = $this->getEntityManager()->createQueryBuilder();
-        $queryBuilder
-            ->select("*, ST_GeomFromGeoJSON(z.shapePolygon) as shape_polygon, ST_GeomFromGeoJSON(z.shapeMultipolygon) as shape_multipolygon")
-            ->where("zoneType := type")
-            ->setParameter('type', $type)
-        ;
 
-        return $queryBuilder->getQuery()->getResult();
+    /**
+     * @param ZoneType $zoneType
+     * @return array|Zone[]
+     */
+    public function getZonesByZoneType(ZoneType $zoneType):array
+    {
+        return $this->findBy(['type' => $zoneType]);
     }
 }
