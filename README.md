@@ -4,7 +4,11 @@
 
 ##Technical environment
 
+<<<<<<< HEAD
 ###Languages 
+=======
+###Languages
+>>>>>>> develop
 
 * PHP7
 * Golang 1.6
