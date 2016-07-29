@@ -4,6 +4,17 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: ApiBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    api.repository.zone:
+        class: ApiBundle\Repository\ZoneRepository
+        factory: ["@doctrine.orm.default_entity_manager", getRepository]
+        arguments:
+            - ApiBundle\Entity\Zone
+        lazy: true
+
+    api.repository.zone_type:
+        class: ApiBundle\Repository\ZoneTypeRepository
+        factory: ["@doctrine.orm.default_entity_manager", getRepository]
+        arguments:
+            - ApiBundle\Entity\ZoneType
+        lazy: true

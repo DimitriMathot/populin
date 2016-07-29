@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  *          @ORM\Index(name="idx_name", columns={"name"})
  *     }
  * )
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ApiBundle\Repository\ZoneTypeRepository")
  */
 class ZoneType
 {

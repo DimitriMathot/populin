@@ -60,7 +60,6 @@ doctrine:
         auto_mapping: true
         dql:
             numeric_functions:
-                numeric_functions:
                 st_contains:     CrEOF\Spatial\ORM\Query\AST\Functions\MySql\STContains
                 contains:        CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Contains
                 st_area:         CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Area
