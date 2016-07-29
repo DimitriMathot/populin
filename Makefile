@@ -5,16 +5,17 @@ APP_MOBILE      = Apps/Mobile
 APP_DESKTOP     = Apps/Desktop
 
 
-.PHONY: backend-api-cache backend-api-cache
+.PHONY: b-api-cache b-api-cs b-api
 
-backend-api-cache:
-	rm -Rf $(BACKEND_API)/var/cache/
-	$(BACKEND_API)/bin/console cache:warmup -e prod
-	$(BACKEND_API)/bin/console cache:warmup
+b-api-cache:
+	@rm -Rf $(BACKEND_API)/var/cache/
+	@$(BACKEND_API)/bin/console cache:warmup -e prod --quiet
+	@$(BACKEND_API)/bin/console cache:warmup --quiet
+	@echo "Cache is cleaned and warmed up"
 
-backend-cs:
+b-api-cs:
 	php-cs-fixer fix $(BACKEND_API)/src/ --level=symfony
 
-backend-server: backend-api-cache
-	screen -S politics-backend-server -d -m $(BACKEND_API)/bin/console server:run
-
+b-api: b-api-cache
+	@screen -S politics-backend-server -d -m $(BACKEND_API)/bin/console server:run
+	@echo "Server is running in screen backend.api.popul.in on http://localhost:8000"
