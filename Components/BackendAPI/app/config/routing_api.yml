@@ -1,3 +1,3 @@
 api.zones:
     type: annotation
-    resource: ApiBundle\Controller\Zones\ZonesController
+    resource: "@ApiBundle/Controller/"

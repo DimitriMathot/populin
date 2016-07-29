@@ -26,6 +26,18 @@ use Doctrine\ORM\Mapping as ORM;
 class ElectMandateXref
 {
     /**
+     * @var Elect
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="ApiBundle\Entity\Elect")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="elect", referencedColumnName="id")
+     * })
+     */
+    private $elect;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_from", type="date", nullable=true)
@@ -38,18 +50,6 @@ class ElectMandateXref
      * @ORM\Column(name="date_until", type="date", nullable=true)
      */
     private $dateUntil;
-
-    /**
-     * @var Elect
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="ApiBundle\Entity\Elect")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="elect", referencedColumnName="id")
-     * })
-     */
-    private $elect;
 
     /**
      * @var Mandate
@@ -76,6 +76,16 @@ class ElectMandateXref
     private $zoneElection;
 
     /**
+     * @var Zone
+     *
+     * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\Zone")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="zone_scope", referencedColumnName="id")
+     * })
+     */
+    private $zoneScope;
+
+    /**
      * @var PoliticalLabel
      *
      * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\PoliticalLabel")
@@ -94,16 +104,6 @@ class ElectMandateXref
      * })
      */
     private $country;
-
-    /**
-     * @var Zone
-     *
-     * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\Zone")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="zone_scope", referencedColumnName="id")
-     * })
-     */
-    private $zoneScope;
 
     /**
      * Set dateFrom.
