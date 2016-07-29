@@ -78,6 +78,11 @@ class Elect
     private $socioProfessionalCategory;
 
     /**
+     * @ORM\OneToMany(targetEntity="ApiBundle\Entity\ElectMandateXref", mappedBy="elect")
+     */
+    private $mandates;
+
+    /**
      * @return int
      */
     public function getId()
