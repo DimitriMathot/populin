@@ -2,7 +2,6 @@
 
 namespace ApiBundle\Controller\Zones;
 
-use ApiBundle\Entity\Country;
 use ApiBundle\Entity\Zone;
 use ApiBundle\Entity\ZoneType;
 use FOS\RestBundle\Controller\Annotations\Route;
@@ -15,58 +14,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
  */
 class ZonesController extends Controller
 {
-    /**
-     * @Route(
-     *     methods={"GET"},
-     *     name="get_zones_types",
-     *     path="zones-types"
-     * )
-     *
-     * @ApiDoc(
-     *     resource = true,
-     *     section="Zones",
-     *     statusCodes = {
-     *         200 = "Returned when successful"
-     *     }
-     * )
-     *
-     * @ParamConverter("country", options={"mapping": {"country": "isoCode2Letters"}})
-     *
-     * @param Country $country
-     *
-     * @return ZoneType[]|array
-     */
-    public function getZonesTypesAction(Country $country)
-    {
-        return $this->get('api.repository.zone_type')->getZonesTypesByCountry($country);
-    }
-
-    /**
-     * @Route(
-     *     methods={"GET"},
-     *     name="get_zone_type",
-     *     path="zones-types/{slug}"
-     * )
-     *
-     * @ApiDoc(
-     *     resource = true,
-     *     section="Zones",
-     *     statusCodes = {
-     *         200 = "Return zone type",
-     *         404 = "Zone type not found"
-     *     }
-     * )
-     *
-     * @ParamConverter("zoneType", options={"mapping": {"country": "country.isoCode2Letters", "slug": "slug"}})
-     *
-     * @param ZoneType $zoneType
-     *
-     * @return ZoneType
-     */
-    public function getZonesTypeAction(ZoneType $zoneType)
-    {
-        return $zoneType;
-    }
 
     /**
      * @Route(
@@ -97,8 +44,14 @@ class ZonesController extends Controller
     /**
      * @Route(
      *     methods={"GET"},
-     *     name="get_zone",
+     *     name="get_zone_by_zone_type",
      *     path="zones-types/{zone_type_slug}/zones/{zone_slug}"
+     * )
+     *
+     * @Route(
+     *     methods={"GET"},
+     *     name="get_zone",
+     *     path="zones/{zone_slug}"
      * )
      *
      * @ApiDoc(
