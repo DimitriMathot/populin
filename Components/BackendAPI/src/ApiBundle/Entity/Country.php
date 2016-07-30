@@ -127,10 +127,14 @@ class Country
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -143,10 +147,14 @@ class Country
 
     /**
      * @param string $formalname
+     *
+     * @return $this
      */
     public function setFormalname($formalname)
     {
         $this->formalname = $formalname;
+
+        return $this;
     }
 
     /**
@@ -159,10 +167,14 @@ class Country
 
     /**
      * @param string $type
+     *
+     * @return $this
      */
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
     }
 
     /**
@@ -175,10 +187,14 @@ class Country
 
     /**
      * @param string $subType
+     *
+     * @return $this
      */
     public function setSubType($subType)
     {
         $this->subType = $subType;
+
+        return $this;
     }
 
     /**
@@ -191,10 +207,14 @@ class Country
 
     /**
      * @param string $sovereignty
+     *
+     * @return $this
      */
     public function setSovereignty($sovereignty)
     {
         $this->sovereignty = $sovereignty;
+
+        return $this;
     }
 
     /**
@@ -207,10 +227,14 @@ class Country
 
     /**
      * @param string $capital
+     *
+     * @return $this
      */
     public function setCapital($capital)
     {
         $this->capital = $capital;
+
+        return $this;
     }
 
     /**
@@ -223,10 +247,14 @@ class Country
 
     /**
      * @param string $currency
+     *
+     * @return $this
      */
     public function setCurrency($currency)
     {
         $this->currency = $currency;
+
+        return $this;
     }
 
     /**
@@ -239,10 +267,14 @@ class Country
 
     /**
      * @param string $isoCode2Letters
+     *
+     * @return $this
      */
     public function setIsoCode2Letters($isoCode2Letters)
     {
         $this->isoCode2Letters = $isoCode2Letters;
+
+        return $this;
     }
 
     /**
@@ -255,10 +287,14 @@ class Country
 
     /**
      * @param string $isoCode3Letters
+     *
+     * @return $this
      */
     public function setIsoCode3Letters($isoCode3Letters)
     {
         $this->isoCode3Letters = $isoCode3Letters;
+
+        return $this;
     }
 
     /**
@@ -271,10 +307,14 @@ class Country
 
     /**
      * @param int $isoCodeNumbers
+     *
+     * @return $this
      */
     public function setIsoCodeNumbers($isoCodeNumbers)
     {
         $this->isoCodeNumbers = $isoCodeNumbers;
+
+        return $this;
     }
 
     /**
@@ -287,9 +327,13 @@ class Country
 
     /**
      * @param string $tld
+     *
+     * @return $this
      */
     public function setTld($tld)
     {
         $this->tld = $tld;
+
+        return $this;
     }
 }

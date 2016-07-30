@@ -82,10 +82,14 @@ class Mandate
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -98,10 +102,14 @@ class Mandate
 
     /**
      * @param string $wikipedia
+     *
+     * @return $this
      */
     public function setWikipedia($wikipedia)
     {
         $this->wikipedia = $wikipedia;
+
+        return $this;
     }
 
     /**
@@ -114,10 +122,14 @@ class Mandate
 
     /**
      * @param \ApiBundle\Entity\ZoneType $zoneType
+     *
+     * @return $this
      */
     public function setZoneType($zoneType)
     {
         $this->zoneType = $zoneType;
+
+        return $this;
     }
 
     /**
@@ -130,9 +142,13 @@ class Mandate
 
     /**
      * @param Mandate $hierarchy
+     *
+     * @return $this
      */
     public function setHierarchy($hierarchy)
     {
         $this->hierarchy = $hierarchy;
+
+        return $this;
     }
 }

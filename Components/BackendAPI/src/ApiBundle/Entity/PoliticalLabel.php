@@ -75,10 +75,14 @@ class PoliticalLabel
 
     /**
      * @param string $acronym
+     *
+     * @return $this
      */
     public function setAcronym($acronym)
     {
         $this->acronym = $acronym;
+
+        return $this;
     }
 
     /**
@@ -91,10 +95,14 @@ class PoliticalLabel
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -107,10 +115,14 @@ class PoliticalLabel
 
     /**
      * @param string $slug
+     *
+     * @return $this
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -123,9 +135,13 @@ class PoliticalLabel
 
     /**
      * @param Country $country
+     *
+     * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
+        return $this;
     }
 }
