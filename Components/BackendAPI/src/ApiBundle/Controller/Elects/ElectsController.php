@@ -2,7 +2,6 @@
 
 namespace ApiBundle\Controller\Elects;
 
-use ApiBundle\Entity\Country;
 use ApiBundle\Entity\Elect;
 use FOS\RestBundle\Controller\Annotations\Route;
 use FOS\RestBundle\Controller\FOSRestController as Controller;

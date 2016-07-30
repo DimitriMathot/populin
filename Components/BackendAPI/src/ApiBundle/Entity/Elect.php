@@ -2,7 +2,9 @@
 
 namespace ApiBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use EasySlugger\Utf8Slugger;
 
 /**
  * Elect.
@@ -19,7 +21,7 @@ use Doctrine\ORM\Mapping as ORM;
  *          @ORM\Index(name="idx_last_name", columns={"last_name"})
  *     }
  * )
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ApiBundle\Repository\ElectRepository")
  */
 class Elect
 {
@@ -78,9 +80,34 @@ class Elect
     private $socioProfessionalCategory;
 
     /**
+     * @var ElectMandateXref[]|Collection
      * @ORM\OneToMany(targetEntity="ApiBundle\Entity\ElectMandateXref", mappedBy="elect")
      */
     private $mandates;
+
+    /**
+     * Elect constructor.
+     *
+     * @param string                    $firstName
+     * @param string                    $lastName
+     * @param string                    $sex
+     * @param \DateTime                 $birthDate
+     * @param SocioProfessionalCategory $socioProfessionalCategory
+     */
+    public function __construct(
+        $firstName,
+        $lastName,
+        $sex,
+        \DateTime $birthDate,
+        SocioProfessionalCategory $socioProfessionalCategory = null
+    ) {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->slug = Utf8Slugger::uniqueSlugify($this->firstName.'-'.$this->lastName);
+        $this->sex = $sex;
+        $this->birthDate = $birthDate;
+        $this->socioProfessionalCategory = $socioProfessionalCategory;
+    }
 
     /**
      * @return int
@@ -100,10 +127,14 @@ class Elect
 
     /**
      * @param string $firstName
+     *
+     * @return $this
      */
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
+
+        return $this;
     }
 
     /**
@@ -116,10 +147,14 @@ class Elect
 
     /**
      * @param string $lastName
+     *
+     * @return $this
      */
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+
+        return $this;
     }
 
     /**
@@ -130,12 +165,11 @@ class Elect
         return $this->slug;
     }
 
-    /**
-     * @param string $slug
-     */
-    public function setSlug($slug)
+    public function setSlug()
     {
-        $this->slug = $slug;
+        $this->slug = $this->slug = Utf8Slugger::uniqueSlugify($this->firstName.'-'.$this->lastName);
+
+        return $this;
     }
 
     /**
@@ -148,10 +182,14 @@ class Elect
 
     /**
      * @param string $sex
+     *
+     * @return $this
      */
     public function setSex($sex)
     {
         $this->sex = $sex;
+
+        return $this;
     }
 
     /**
@@ -164,10 +202,14 @@ class Elect
 
     /**
      * @param \DateTime $birthDate
+     *
+     * @return $this
      */
     public function setBirthDate(\DateTime $birthDate)
     {
         $this->birthDate = $birthDate;
+
+        return $this;
     }
 
     /**
@@ -180,9 +222,45 @@ class Elect
 
     /**
      * @param SocioProfessionalCategory $socioProfessionalCategory
+     *
+     * @return $this
      */
-    public function setSocioProfessionalCategory($socioProfessionalCategory)
+    public function setSocioProfessionalCategory(SocioProfessionalCategory $socioProfessionalCategory)
     {
         $this->socioProfessionalCategory = $socioProfessionalCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return ElectMandateXref[]|Collection
+     */
+    public function getMandates()
+    {
+        return $this->mandates;
+    }
+
+    /**
+     * @param ElectMandateXref $mandate
+     *
+     * @return $this
+     */
+    public function addMandate(ElectMandateXref $mandate)
+    {
+        $this->mandates->add($mandate);
+
+        return $this;
+    }
+
+    /**
+     * @param ElectMandateXref $mandate
+     *
+     * @return $this
+     */
+    public function removeMandate(ElectMandateXref $mandate)
+    {
+        $this->mandates->removeElement($mandate);
+
+        return $this;
     }
 }

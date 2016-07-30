@@ -82,10 +82,14 @@ class SocioProfessionalCategory
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -98,10 +102,14 @@ class SocioProfessionalCategory
 
     /**
      * @param string $slug
+     *
+     * @return $this
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -114,10 +122,14 @@ class SocioProfessionalCategory
 
     /**
      * @param \ApiBundle\Entity\SocioProfessionalFamily $family
+     *
+     * @return $this
      */
     public function setFamily($family)
     {
         $this->family = $family;
+
+        return $this;
     }
 
     /**
@@ -130,9 +142,13 @@ class SocioProfessionalCategory
 
     /**
      * @param \ApiBundle\Entity\Country $country
+     *
+     * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
+        return $this;
     }
 }
