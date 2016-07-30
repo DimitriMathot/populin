@@ -1,4 +1,4 @@
-#Politics
+![popul.in](Doc/images/logo.png)
 
 @see [Specs](Doc/Specs.md)
 @see [Todos](Doc/Todos.md)
