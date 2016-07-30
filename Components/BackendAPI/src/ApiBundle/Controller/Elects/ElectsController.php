@@ -30,8 +30,9 @@ class ElectsController extends Controller
      *
      * @ParamConverter("elect", options={"mapping": {"slug": "slug"}})
      */
-    public function getElectsFromZoneAction(Elect $elect)
+    public function getElectAction(Elect $elect)
     {
         return $elect;
     }
+
 }
