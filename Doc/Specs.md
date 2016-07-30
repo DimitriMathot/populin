@@ -1,14 +1,6 @@
-{politics project}
-==================
+![popul.in](Doc/images/logo.png)
 
 ## Emergency
-
-Find a name for the project !   
-
-* demo / people  
-* [Democraty history](https://en.wikipedia.org/wiki/Democracy)  
-* [Vaisali](https://en.wikipedia.org/wiki/Vaisali), first democraty ever  
-* [Anarchist culture](https://en.wikipedia.org/wiki/Temporary_Autonomous_Zone)  
 
 Find a graphical identity
 

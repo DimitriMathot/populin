@@ -1,3 +1,5 @@
+![popul.in](Doc/images/logo.png)
+
 #TODOs
 
 ##General
