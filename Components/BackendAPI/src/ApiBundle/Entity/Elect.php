@@ -59,9 +59,9 @@ class Elect
     /**
      * @var string
      *
-     * @ORM\Column(name="sex", type="string", nullable=false)
+     * @ORM\Column(name="gender", type="string", length=1, nullable=false)
      */
-    private $sex = 'M';
+    private $gender = 'M';
 
     /**
      * @var \DateTime
@@ -98,14 +98,14 @@ class Elect
     public function __construct(
         $firstName,
         $lastName,
-        $sex,
+        $gender,
         \DateTime $birthDate,
         SocioProfessionalCategory $socioProfessionalCategory = null
     ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->slug = Utf8Slugger::uniqueSlugify($this->firstName.'-'.$this->lastName);
-        $this->sex = $sex;
+        $this->gender = $gender;
         $this->birthDate = $birthDate;
         $this->socioProfessionalCategory = $socioProfessionalCategory;
         $this->mandates = new ArrayCollection();
@@ -176,19 +176,19 @@ class Elect
     /**
      * @return string
      */
-    public function getSex()
+    public function getGender()
     {
-        return $this->sex;
+        return $this->gender;
     }
 
     /**
-     * @param string $sex
+     * @param string $gender
      *
      * @return $this
      */
-    public function setSex($sex)
+    public function setGender($gender)
     {
-        $this->sex = $sex;
+        $this->gender = $gender;
 
         return $this;
     }
