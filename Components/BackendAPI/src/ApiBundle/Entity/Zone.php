@@ -2,7 +2,11 @@
 
 namespace ApiBundle\Entity;
 
+use CrEOF\Spatial\PHP\Types\Geography\Polygon;
+use CrEOF\Spatial\PHP\Types\Geometry\MultiPolygon;
 use Doctrine\ORM\Mapping as ORM;
+use GeoJson\GeoJson;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Zones.
@@ -91,16 +95,18 @@ class Zone
     private $dateUntil;
 
     /**
-     * @var string
+     * @var Polygon
      *
      * @ORM\Column(name="shape_polygon", type="polygon", nullable=true)
+     * @Serializer\Accessor(getter="getShapePolygon",setter="setShapePolygonFromGeoJson")
      */
     private $shapePolygon;
 
     /**
-     * @var string
+     * @var MultiPolygon
      *
      * @ORM\Column(name="shape_multipolygon", type="multipolygon", nullable=true)
+     * @Serializer\Accessor(getter="getShapeMultiPolygon",setter="setShapeMultiPolygonFromGeoJson")
      */
     private $shapeMultipolygon;
 
@@ -149,10 +155,14 @@ class Zone
 
     /**
      * @param string $ref
+     *
+     * @return $this
      */
     public function setRef($ref)
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     /**
@@ -165,10 +175,14 @@ class Zone
 
     /**
      * @param string $refOfficial
+     *
+     * @return $this
      */
     public function setRefOfficial($refOfficial)
     {
         $this->refOfficial = $refOfficial;
+
+        return $this;
     }
 
     /**
@@ -181,10 +195,14 @@ class Zone
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -197,10 +215,14 @@ class Zone
 
     /**
      * @param string $slug
+     *
+     * @return $this
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -213,10 +235,14 @@ class Zone
 
     /**
      * @param int $population
+     *
+     * @return $this
      */
     public function setPopulation($population)
     {
         $this->population = $population;
+
+        return $this;
     }
 
     /**
@@ -229,10 +255,14 @@ class Zone
 
     /**
      * @param string $wikipedia
+     *
+     * @return $this
      */
     public function setWikipedia($wikipedia)
     {
         $this->wikipedia = $wikipedia;
+
+        return $this;
     }
 
     /**
@@ -245,10 +275,14 @@ class Zone
 
     /**
      * @param \DateTime $dateFrom
+     *
+     * @return $this
      */
     public function setDateFrom($dateFrom)
     {
         $this->dateFrom = $dateFrom;
+
+        return $this;
     }
 
     /**
@@ -261,10 +295,14 @@ class Zone
 
     /**
      * @param \DateTime $dateUntil
+     *
+     * @return $this
      */
     public function setDateUntil($dateUntil)
     {
         $this->dateUntil = $dateUntil;
+
+        return $this;
     }
 
     /**
@@ -272,15 +310,34 @@ class Zone
      */
     public function getShapePolygon()
     {
-        return $this->shapePolygon;
+        return null === $this->shapePolygon ?:
+            GeoJson::jsonUnserialize(json_decode($this->shapePolygon->toJson()));
     }
 
     /**
      * @param string $shapePolygon
+     *
+     * @return $this
      */
     public function setShapePolygon($shapePolygon)
     {
         $this->shapePolygon = $shapePolygon;
+
+        return $this;
+    }
+
+    /**
+     * @todo check how this can be achieved
+     *
+     * @param GeoJson $geoJson
+     *
+     * @return $this
+     */
+    public function setShapePolygonFromGeoJson(GeoJson $geoJson)
+    {
+        $this->shapePolygon = $geoJson;
+
+        return $this;
     }
 
     /**
@@ -288,15 +345,34 @@ class Zone
      */
     public function getShapeMultipolygon()
     {
-        return $this->shapeMultipolygon;
+        return null === $this->shapeMultipolygon ?:
+            GeoJson::jsonUnserialize(json_decode($this->shapeMultipolygon->toJson()));
     }
 
     /**
      * @param string $shapeMultipolygon
+     *
+     * @return $this
      */
     public function setShapeMultipolygon($shapeMultipolygon)
     {
         $this->shapeMultipolygon = $shapeMultipolygon;
+
+        return $this;
+    }
+
+    /**
+     * @todo check how this can be achieved
+     *
+     * @param GeoJson $geoJson
+     *
+     * @return $this
+     */
+    public function setShapeMultiPolygonFromGeoJson(GeoJson $geoJson)
+    {
+        $this->shapeMultipolygon = $geoJson;
+
+        return $this;
     }
 
     /**
@@ -309,10 +385,14 @@ class Zone
 
     /**
      * @param string $centroid
+     *
+     * @return $this
      */
     public function setCentroid($centroid)
     {
         $this->centroid = $centroid;
+
+        return $this;
     }
 
     /**
@@ -325,10 +405,14 @@ class Zone
 
     /**
      * @param Country $country
+     *
+     * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
+        return $this;
     }
 
     /**
@@ -341,9 +425,13 @@ class Zone
 
     /**
      * @param \ApiBundle\Entity\ZoneType $type
+     *
+     * @return $this
      */
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
     }
 }
