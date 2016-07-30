@@ -19,3 +19,6 @@ b-api-cs:
 b-api: b-api-cache
 	@screen -S politics-backend-server -d -m $(BACKEND_API)/bin/console server:run
 	@echo "Server is running in screen backend.api.popul.in on http://localhost:8000"
+
+bash-docker:
+    docker exec -ti backend-api bash

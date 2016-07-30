@@ -1,0 +1,31 @@
+backend-api:
+  build: .
+  links:
+    - mysql
+    - nginx
+    - php7
+  volumes:
+    - ./Components/BackendAPI:/home/backend.api.popul.in
+    - ./Components/FrontendAPI:/home/frontend.api.popul.in
+  ports:
+    - "8001:80"
+  environment:
+    - SYMFONY_ENV=test
+    - SYMFONY_DEBUG=true
+
+mysql:
+  image: mysql:5.7
+  ports:
+    - "3306:3307"
+  environment:
+    - MYSQL_ALLOW_EMPTY_PASSWORD=1
+  volumes:
+    - ./data/mysql:/etc/mysql
+
+nginx:
+  image: nginx:1.10
+  volumes:
+    - ./data/nginx:/etc/nginx
+
+php7:
+  image: php:7
