@@ -1,4 +1,4 @@
-![popul.in](Doc/images/logo.png)
+![popul.in](images/logo.png)
 
 #TODOs
 
