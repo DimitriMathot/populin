@@ -30,7 +30,7 @@ class ZonesController extends Controller
      *     }
      * )
      *
-     * @ParamConverter("zoneType", options={"mapping": {"country": "country.isoCode2Letters", "slug": "slug"}})
+     * @ParamConverter("zoneType", options={"mapping": {"_locale": "country.isoCode2Letters", "slug": "slug"}})
      *
      * @param ZoneType $zoneType
      *
@@ -62,7 +62,7 @@ class ZonesController extends Controller
      *     }
      * )
      *
-     * @ParamConverter("zone", options={"mapping": {"country": "type.country.isoCode2Letters", "zone_type_slug": "type.slug", "zone_slug": "slug"}})
+     * @ParamConverter("zone", options={"mapping": {"_locale": "type.country.isoCode2Letters", "zone_type_slug": "type.slug", "zone_slug": "slug"}})
      *
      * @param Zone $zone
      *
