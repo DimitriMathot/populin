@@ -2,10 +2,12 @@
 
 namespace ApiBundle\Entity;
 
+use ApiBundle\GeoJson\GeoJsonFormatter;
 use CrEOF\Spatial\PHP\Types\Geography\Polygon;
 use CrEOF\Spatial\PHP\Types\Geometry\MultiPolygon;
 use Doctrine\ORM\Mapping as ORM;
 use GeoJson\GeoJson;
+use GeoJson\Geometry\Geometry;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -306,12 +308,11 @@ class Zone
     }
 
     /**
-     * @return string
+     * @return Geometry|null
      */
     public function getShapePolygon()
     {
-        return null === $this->shapePolygon ?:
-            GeoJson::jsonUnserialize(json_decode($this->shapePolygon->toJson()));
+        return GeoJsonFormatter::format($this->shapePolygon);
     }
 
     /**
@@ -341,12 +342,11 @@ class Zone
     }
 
     /**
-     * @return string
+     * @return Geometry|null
      */
     public function getShapeMultipolygon()
     {
-        return null === $this->shapeMultipolygon ?:
-            GeoJson::jsonUnserialize(json_decode($this->shapeMultipolygon->toJson()));
+        return GeoJsonFormatter::format($this->shapeMultipolygon);
     }
 
     /**
