@@ -2,6 +2,7 @@
 
 namespace ApiBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
  *          @ORM\Index(name="idx_last_name", columns={"last_name"})
  *     }
  * )
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ApiBundle\Repository\ElectRepository")
  */
 class Elect
 {
@@ -78,6 +79,7 @@ class Elect
     private $socioProfessionalCategory;
 
     /**
+     * @var ElectMandateXref[]|Collection
      * @ORM\OneToMany(targetEntity="ApiBundle\Entity\ElectMandateXref", mappedBy="elect")
      */
     private $mandates;
@@ -185,4 +187,35 @@ class Elect
     {
         $this->socioProfessionalCategory = $socioProfessionalCategory;
     }
+
+    /**
+     * @return ElectMandateXref[]|Collection
+     */
+    public function getMandates()
+    {
+        return $this->mandates;
+    }
+
+    /**
+     * @param ElectMandateXref $mandate
+     * @return $this
+     */
+    public function addMandate(ElectMandateXref $mandate)
+    {
+        $this->mandates->add($mandate);
+
+        return $this;
+    }
+
+    /**
+     * @param ElectMandateXref $mandate
+     * @return $this
+     */
+    public function removeMandate(ElectMandateXref $mandate)
+    {
+        $this->mandates->removeElement($mandate);
+
+        return $this;
+    }
+
 }
