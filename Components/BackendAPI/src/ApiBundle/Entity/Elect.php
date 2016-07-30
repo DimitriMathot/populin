@@ -2,6 +2,7 @@
 
 namespace ApiBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use EasySlugger\Utf8Slugger;
@@ -107,6 +108,7 @@ class Elect
         $this->sex = $sex;
         $this->birthDate = $birthDate;
         $this->socioProfessionalCategory = $socioProfessionalCategory;
+        $this->mandates = new ArrayCollection();
     }
 
     /**
