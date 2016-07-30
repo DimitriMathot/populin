@@ -14,7 +14,7 @@ init: init-backend-api init-desktop-app init-mobile-app
 init-desktop-app:
 	@echo "Installing assets for $(APP_DESKTOP)"
 	@cd ./$(APP_DESKTOP) && \
-	@npm install --quiet
+	npm install --quiet
 
 init-mobile-app:
 	@echo "Installing assets for $(APP_MOBILE)"
