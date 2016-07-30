@@ -113,7 +113,7 @@ class ZonesController extends Controller
      *
      * @param Zone $zone
      *
-     * @return array
+     * @return Zone
      */
     public function getZoneAction(Zone $zone)
     {
