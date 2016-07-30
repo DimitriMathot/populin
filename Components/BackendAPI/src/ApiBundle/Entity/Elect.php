@@ -133,7 +133,6 @@ class Elect
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
-
         return $this;
     }
 
@@ -165,9 +164,9 @@ class Elect
         return $this->slug;
     }
 
-    public function setSlug()
+    public function setSlug($slug)
     {
-        $this->slug = $this->slug = Utf8Slugger::uniqueSlugify($this->firstName.'-'.$this->lastName);
+        $this->slug = $slug;
 
         return $this;
     }
