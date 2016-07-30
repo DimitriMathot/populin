@@ -1,6 +1,7 @@
 #Politics
 
 @see [Specs](Doc/Specs.md)
+@see [Todos](Doc/Todos.md)
 
 ##Technical environment
 
